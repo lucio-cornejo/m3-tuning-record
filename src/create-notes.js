@@ -1,3 +1,5 @@
+globalThis.freqHistory = [];
+
 document.addEventListener(
   "DOMContentLoaded",
   function () {
@@ -7,7 +9,7 @@ document.addEventListener(
 
     // Set amount of notes to create
     const numRows = 6;
-    const numFrets = 10;
+    const numFrets = 12;
 
     // Retrieve single note created
     // const note = document.querySelector("[data-note]");
