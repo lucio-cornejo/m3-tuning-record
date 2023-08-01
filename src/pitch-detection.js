@@ -23,7 +23,7 @@ function startPitch(stream) {
 }
 
 function getPitch() {
-  pitch.getPitch(function(err, frequency) {
+  pitch.getPitch(async function(err, frequency) {
     if (frequency) {
       globalThis.freqHistory.push(frequency);
       try {
@@ -34,6 +34,8 @@ function getPitch() {
     } else {
       // console.log('No pitch detected');
     }
+
+    await new Promise(r => setTimeout(r, 250));
     getPitch();
   })
 }

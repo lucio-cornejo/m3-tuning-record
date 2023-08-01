@@ -31,4 +31,3 @@ function colorNotePlayed() {
     note.style.backgroundColor = "black";
   });
 }
-
