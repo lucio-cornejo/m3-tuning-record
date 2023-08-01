@@ -6,12 +6,14 @@
   <title>M3 tuning</title>
   
   <link rel="stylesheet" href="./src/styles.css">
-  <script src="./src/create-notes.js" defer></script>
+  <script defer src="./src/create-notes.js"></script>
   
   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
   <script src="./src/pitch-detection.js"></script>
   
   <script src="./src/color-notes.js"></script>
+  
+  <script src="./src/record-notes.js"></script>
 </head>
 <body>
   <div id="guitar">
@@ -20,6 +22,10 @@
       <div data-note="3"></div>
     </div>
   -->
+  </div>
+  <div id="options"> 
+    <button id="record" onclick="recordNotes()">Record</button>
+    <button id="download" onclick="downloadNotes()">Download</button>
   </div>
 </body>
 </html>

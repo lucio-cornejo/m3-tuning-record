@@ -1,5 +1,3 @@
-globalThis.freqHistory = [];
-
 document.addEventListener(
   "DOMContentLoaded",
   function () {

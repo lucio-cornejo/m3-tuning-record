@@ -3,7 +3,7 @@
 }
 
 body {
-  margin: 20px 20px;
+  margin: 5px 20px 0 20px;
   padding: 0;
 }
 
@@ -30,4 +30,15 @@ body {
 
 #guitar [data-note]:hover:before {
   content: attr(data-note);
+}
+
+
+#options {
+  position: absolute;
+  bottom: 20px;
+  left: 45%;
+}
+
+#options > button {
+  font-size: 150%;
 }
