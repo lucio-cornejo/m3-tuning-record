@@ -7,12 +7,12 @@ document.addEventListener(
 
     // Set amount of notes to create
     const numRows = 6;
-    const numFrets = 12;
+    const numFrets = 6;
 
     // Retrieve single note created
     // const note = document.querySelector("[data-note]");
     // const pitchClass = parseInt(note.dataset.note);
-    const pitchClass = 3;
+    const pitchClass = 7;
 
     // Create rows of notes
     for (let row = 0; row < numRows; row++) {
@@ -35,7 +35,9 @@ function createNewNotesRow(pitchClass) {
   const note = document.createElement("div");
 
   newRow.classList.add("notes-row");
+
   note.dataset.note = pitchClass;
+  note.classList.add("not-playing");
 
   newRow.appendChild(note);
   globalThis["guitar"].appendChild(newRow);
@@ -51,6 +53,7 @@ function fillNotesRow(notesRow, numNotes, lastPitchClass) {
   const nextNote = document.createElement("div");
   const newPitchClass = (lastPitchClass + 1) % 12;
   nextNote.dataset.note = newPitchClass;
+  nextNote.classList.add("not-playing");
 
   // Append new note
   notesRow.appendChild(nextNote);

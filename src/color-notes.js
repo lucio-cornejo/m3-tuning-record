@@ -18,16 +18,18 @@ function colorNotePlayed() {
   const lastFrequency = globalThis.freqHistory.at(-1);
   const pitchClassApprox = freqToPitchClass(lastFrequency);
 
+  updateNotesColor(pitchClassApprox);
+}
+
+
+function updateNotesColor(pitchClass) {
   // Uncolor notes
-  const notes = Array.from(document.querySelectorAll("[data-note]"));
-  notes.forEach(note => note.style.backgroundColor = "crimson");
+  const notes = Array.from(document.querySelectorAll("[data-note]:not(.not-playing)"));
+  notes.forEach(note => note.classList.add("not-playing"));
 
   // Color note instances of pitch class played
   const playedNote = Array.from(
-    document.querySelectorAll(`[data-note="${pitchClassApprox}"]`)
+    document.querySelectorAll(`[data-note="${pitchClass}"]`)
   );
-
-  playedNote.forEach(function(note) {
-    note.style.backgroundColor = "black";
-  });
+  playedNote.forEach(note =>  note.classList.remove("not-playing"));
 }

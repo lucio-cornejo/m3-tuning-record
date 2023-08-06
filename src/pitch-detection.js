@@ -23,6 +23,7 @@ function startPitch(stream, audioContext) {
 
 function getPitch() {
   pitch.getPitch(async function(err, frequency) {
+  // pitch.getPitch(function(err, frequency) {
     if (frequency) {
       globalThis.freqHistory.push(frequency);
       globalThis.timeHistory.push(Date.now());

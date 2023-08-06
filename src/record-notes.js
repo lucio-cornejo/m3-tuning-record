@@ -3,7 +3,7 @@ document.addEventListener(
     globalThis.freqHistory = [];
     globalThis.timeHistory = [];
 
-    ml5Setup();
+    // ml5Setup();
   },
   { once: true }
 )
@@ -12,6 +12,9 @@ function recordNotes() {
   // Reset main global variables
   globalThis.freqHistory = [];
   globalThis.timeHistory = [];
+
+  // Start pitch detection (only once)
+  if (!pitch) ml5Setup();
 }
 
 function downloadNotes() {
