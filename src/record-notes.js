@@ -12,23 +12,30 @@ function recordNotes() {
   // Reset main global variables
   globalThis.freqHistory = [];
   globalThis.timeHistory = [];
+  globalThis.volHistory = [];
 
   // Start pitch detection (only once)
-  if (!pitch) ml5Setup();
+  if (!pitch) activeSound();
 }
 
 function downloadNotes() {
   // Get consecutive differences in times
   const times = globalThis.timeHistory;
-  const timeIntervals = times.slice(1).map((x,i)=> x - times[i]);
+  const timeIntervals = times.slice(1).map((x,i) => x - times[i]);
   timeIntervals.unshift(0);
 
   // Save data into JSON
+  const volumes = globalThis.volHistory;
   const frequencies = globalThis.freqHistory;
   const recording = {
     "timeIntervals": timeIntervals,
+    "volumes": volumes, 
     "frequencies": frequencies
   }
+
+  // Convert frequencies to pitch classes
+  recording.pitchClasses = recording
+    .frequencies.map(freq => freqToPitchClass(freq));
 
   // Download data as JSON file
   const downloadData = JSON.stringify(recording);

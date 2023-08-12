@@ -17,11 +17,6 @@ document.addEventListener(
 
 
 function playRecording() {
-  // Convert frequencies to pitch classes
-  globalThis.recordingData.pitchClasses = 
-    globalThis.recordingData
-      .frequencies.map(freq => freqToPitchClass(freq));
-
   // Retrieve variables to use
   const { pitchClasses } = globalThis.recordingData;
   const { timeIntervals } = globalThis.recordingData;
